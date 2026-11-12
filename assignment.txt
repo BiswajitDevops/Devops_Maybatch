@@ -1,0 +1,184 @@
+ 
+terraform
+21st may
+assignment1: run terraform code and try to store your backend configuration on s3 bucket
+assignment2: create rds server and print its properties in the output
+assignment3: check the usage of data block and try to implement in your code
+assignment4: check the usage of output file and block
+
+terraform22nd may
+assignment1: create a terraform code for below resources
+modules
+1. ecr(elastic container registry)- docker 
+2. eks(elastic kubernetes services)-- kubernetes
+3. ec2 instance (2) (ubuntu) ---- jenkins and as well as for ansible
+4. vpc
+5. security group
+6. iam role
+
+
+assignment2 (optional)
+create a s3 bucket manually 
+then import the s3 bucket on the terraform state file after importing to confirm add the tags in the s3 bucket using terraform
+
+
+assignment 3 (githubactions)
+create a github actions yaml for below task
+
+task: create a terraform pipeline, once you trigger the pipeline your infrastructure should be created
+
+things to taks care:
+authentication between aws and git hub actions will be required
+authentication keys need to be stored as a secret and use it in pipeline
+
+run the pipeline and check if infrastructure is created in aws
+
+assignment4
+create a github workflow to deploy terraform code but with below conditions
+1. take input from user for which environment they want to create resources
+if user selects dev then resources in aws should have naming convention as dev
+if user gives qa then resources in aws should have naming convention as qa
+
+
+2. take input from user for actions the pipeline want to perform
+
+scenerios 
+if user selects plan then only plan stage should run
+if users selects apply then plan and apply both should run
+if user selects destroy then plan and destroy should run
+
+
+note= make sure your secrets and variables are not hard coded in code or pipeline
+
+
+
+3rd june
+jenkins assignments
+
+create another ec2 instance and try to set that machine as jenkins node
+to verify run the pipeline using that node
+
+
+4th june
+create a terraform pipeline in Jenkins
+once you make any changes on the GitHub your pipeline should trigger
+
+note:
+
+tasks:
+
+git checkout
+aws authentication
+terraform installation
+terraform init
+terraform plan 
+terraform apply
+
+
+my pipeline should stop/pause between the plan and apply stage and ask for my manual approval
+
+
+5th june
+create a ansible playbook and add below task
+
+install apache on the target machine
+
+create a html file on the main machine then using the ansible playbook copy the html content on  the target machine
+
+then hit ip address of the target machine from browser and see if you get the html page 
+
+
+assignment 11th june
+
+docker
+
+write a sample java code or any language and create a docker file to deploy the java application inside the image
+
+once your image is created try to run the image and test it uisng local host
+
+
+
+Assignment 12th june
+
+assignment 1: 
+try to build the image with single stage docker file
+and try to build the image with multistage docker file
+
+once your both images are created see the sizes of the images
+
+assignment2:
+
+create a container with bind mounts, in which use your system d:drive
+
+after running the container go inside the container and create some file inside the directory for which you have attached the volume.
+
+once your volume is attahced and files are create now go back to your d drive and check the file which you have created inside the container should in the d drive
+
+similarly create some file in the D drive and check in the container the file should be visible
+
+
+
+assignment 3:
+
+create ECR in aws account
+
+try to create some sample images and push under the ECR
+
+
+16th june
+
+assignment1:
+
+create a pipeline in github actions or jenkins with below steps:
+
+1. your code and docker file should in same repo
+2. build your docker images 
+3. push the docker images on docker hub
+
+these above actions should be repeative as soon as you make any changes on the repo
+
+
+Question 1
+
+Create a custom Docker bridge network called student-net. Launch two Ubuntu containers attached to this network and verify that they can communicate with each other using both container names and IP addresses.
+
+Question 2
+
+Create a custom network named web-net. Deploy an Nginx container named frontend and an Apache container named backend on this network. Demonstrate communication between the two containers and identify the network subnet and gateway.
+
+
+
+17th may
+
+kubernetes 
+
+assignment1
+
+setup kubernetes environment using terraform 
+
+assignment2  
+
+try kubernetes commands
+
+https://kubernetes.io/docs/reference/kubectl/quick-reference/
+
+
+Final: 
+
+create 2 different environments
+dev and productions
+
+
+in this use each tool
+git
+terraform
+github actions
+docker
+kubernetes
+
+try to follow the complete architecture as explained 
+
+means you  will first deploy the changes on dev, after testing you will mege the code on prod branch and finally your deployment will go on the productions environment
+
+
+you can take reference from this project https://github.com/jatinbhalla1991/RSAPROJECTK8
